@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrawBoard - Онлайн доска для рисования</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🎨 DrawBoard</h1>
+            <nav class="nav">
+                <button id="newCanvas" class="btn">Новый</button>
+                <button id="undoBtn" class="btn" title="Отменить">↩️ Отменить</button>
+                <button id="redoBtn" class="btn" title="Повторить">↪️ Повторить</button>
+                <button id="saveBtn" class="btn">Сохранить</button>
+                <button id="clearBtn" class="btn">Очистить</button>
+                <button id="premiumBtn" class="btn premium">Премиум 🚀</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="editor-container">
+                <div class="toolbar">
+                    <div class="tool-group">
+                        <h3>Кисти</h3>
+                        <div class="tools">
+                            <button class="tool-btn active" data-tool="pencil">✏️ Карандаш</button>
+                            <button class="tool-btn" data-tool="brush">🖌️ Кисть</button>
+                            <button class="tool-btn" data-tool="eraser">🧽 Ластик</button>
+                            <button class="tool-btn" data-tool="fill">🪣 Заливка</button>
+                            <button class="tool-btn" data-tool="line">📏 Линия</button>
+                            <button class="tool-btn" data-tool="rectangle">⬜ Прямоугольник</button>
+                            <button class="tool-btn" data-tool="circle">⭕ Круг</button>
+                        </div>
+                    </div>
+
+                    <div class="tool-group">
+                        <h3>Цвет</h3>
+                        <div class="colors">
+                            <input type="color" id="colorPicker" value="#000000">
+                            <div class="color-presets">
+                                <div class="color-preset" style="background: #000000" data-color="#000000"></div>
+                                <div class="color-preset" style="background: #ff0000" data-color="#ff0000"></div>
+                                <div class="color-preset" style="background: #00ff00" data-color="#00ff00"></div>
+                                <div class="color-preset" style="background: #0000ff" data-color="#0000ff"></div>
+                                <div class="color-preset" style="background: #ffff00" data-color="#ffff00"></div>
+                                <div class="color-preset" style="background: #ff00ff" data-color="#ff00ff"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-group">
+                        <h3>Размер</h3>
+                        <input type="range" id="brushSize" min="1" max="50" value="5">
+                        <span id="brushSizeValue">5px</span>
+                    </div>
+                </div>
+
+                <div class="canvas-container">
+                    <canvas id="drawingCanvas" width="1200" height="800"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно премиума -->
+    <div id="premiumModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>🚀 Премиум доступ</h2>
+            <p>Получите полный доступ ко всем функциям без рекламы!</p>
+            
+            <div class="premium-features">
+                <div class="feature">✅ Без рекламы</div>
+                <div class="feature">✅ Расширенные кисти</div>
+                <div class="feature">✅ Сохранение в высоком качестве</div>
+                <div class="feature">✅ Неограниченное количество слоев</div>
+                <div class="feature">✅ Пользовательские шаблоны</div>
+                <div class="feature">✅ Приоритетная поддержка</div>
+            </div>
+            
+            <div class="pricing">
+                <div class="price-option">
+                    <h3>Месяц</h3>
+                    <div class="price">299 ₽</div>
+                    <div class="period">в месяц</div>
+                    <button class="btn premium-buy" data-plan="monthly">Купить</button>
+                </div>
+                
+                <div class="price-option recommended">
+                    <div class="badge">Выгодно</div>
+                    <h3>Год</h3>
+                    <div class="price">2 990 ₽</div>
+                    <div class="period">в год</div>
+                    <div class="saving">Экономия 20%</div>
+                    <button class="btn premium-buy" data-plan="yearly">Купить</button>
+                </div>
+            </div>
+            
+            <div class="more-info">
+                <button class="btn btn-secondary" id="learnMoreBtn">Узнать больше</button>
+                <button class="btn" id="laterBtn">Позже</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/drawing.js"></script>
+    <script src="js/ads.js"></script>
+</body>
+</html>
