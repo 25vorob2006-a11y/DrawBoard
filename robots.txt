@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://25vorob2006-a11y.github.io/DrawBoard/sitemap.xml
